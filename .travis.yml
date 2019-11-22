@@ -1,5 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
 language: csharp
 mono: none
 dotnet: 3.0
 script:
  - dotnet restore
+ 
+ after_success:
+  - sh .travis/deploy_dockerhub.sh
