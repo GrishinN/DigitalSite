@@ -6,7 +6,7 @@ COPY *.csproj ./
 RUN dotnet restore
 
 # copy everything else and build app
-COPY /. ./sitedigitalstore/
+COPY /. ./sitedigitalstore/sitedigitalstore
 WORKDIR /app/sitedigitalstore
 RUN dotnet publish -c Release -o out
 
