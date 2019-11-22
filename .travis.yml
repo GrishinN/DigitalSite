@@ -9,5 +9,5 @@ dotnet: 3.0
 script:
  - dotnet restore
  
- after_success:
-  - sh .travis/deploy_dockerhub.sh
+after_success:
+ - sh .travis/deploy_dockerhub.sh
