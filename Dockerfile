@@ -3,6 +3,8 @@ WORKDIR /sitedigitalstore
 
 # copy csproj and restore as distinct layers
 COPY sitedigitalstore/sitedigitalstore.csproj ./
+WORKDIR /XUnitTest
+COPY XUnitTest/XUnitTest.csproj ./
 RUN dotnet restore
 COPY . .
 RUN dotnet build "sitedigitalstore.csproj" -c Release -o /app
