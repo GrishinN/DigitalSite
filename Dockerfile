@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /sitedigitalstore
 
 # copy csproj and restore as distinct layers
-COPY /sitedigitalstore.csproj ./
+COPY sitedigitalstore/sitedigitalstore.csproj ./
 RUN dotnet restore
 
 # copy everything else and build app
