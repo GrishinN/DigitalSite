@@ -7,4 +7,4 @@ WORKDIR /XUnitTest
 COPY XUnitTest/XUnitTest.csproj ./
 RUN dotnet restore
 COPY . .
-RUN dotnet build "sitedigitalstore.csproj" -c Release -o /app
+RUN dotnet build "sitedigitalstore.csproj" -c Release -o /sitedigitalstore
