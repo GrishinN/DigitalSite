@@ -10,7 +10,7 @@ script:
  - dotnet restore
 
 before_install:
-  - docker build -t carlad/digitalsite .
-  - docker run -d -p 127.0.0.1:80:4567 carlad/digitalsite /bin/sh -c "cd /root/digitalsite; bundle exec foreman start;"
+  - docker build -t GrishinN/digitalsite .
+  - docker run -d -p 127.0.0.1:80:4567 GrishinN/digitalsite /bin/sh -c "cd /root/digitalsite; bundle exec foreman start;"
   - docker ps -a
-  - docker run carlad/digitalsite /bin/sh -c "cd /root/digitalsite; bundle exec rake test"
+  - docker run GrishinN/digitalsite /bin/sh -c "cd /root/digitalsite; bundle exec rake test"
