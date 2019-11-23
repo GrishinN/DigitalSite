@@ -7,4 +7,8 @@ WORKDIR /XUnitTest
 COPY XUnitTest/XUnitTest.csproj ./
 RUN dotnet restore
 COPY . .
-RUN dotnet build "sitedigitalstore.csproj" -c Release -o /sitedigitalstore
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/sitedigitalstore/out ./
+ENTRYPOINT ["dotnet", "sitedigitalstore.dll"]
