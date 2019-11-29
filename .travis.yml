@@ -9,8 +9,7 @@ dotnet: 3.0
 script:
  - dotnet restore
 
-before_install:
-  - docker build -t sitedigitalstore .
-  - docker run -d -p 127.0.0.1:80:4567 sitedigitalstore /bin/sh -c "cd /root/digitalsite; bundle exec foreman start;"
-  - docker ps -a
-  - docker run sitedigitalstore /bin/sh -c "cd /root/digitalsite; bundle exec rake test"
+after_success:
+  - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS";
+  - docker build -t sitedigitalstore .;
+  - docker push "$DOCKER_USER"/digitalStore;
