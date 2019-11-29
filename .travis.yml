@@ -12,4 +12,4 @@ script:
 after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS";
   - docker build -t sitedigitalstore .;
-  - docker push "$DOCKER_USER"/digitalStore;
+  - docker push "$DOCKER_USER"/digitalstore;
