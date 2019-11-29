@@ -1,14 +1,18 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
-WORKDIR /sitedigitalstore
+WORKDIR /app
 
 # copy csproj and restore as distinct layers
-COPY sitedigitalstore/sitedigitalstore.csproj .sitedigitalstore
-WORKDIR /XUnitTest
-COPY XUnitTest/XUnitTest.csproj /sitedigitalstore
+COPY sitedigitalstore*.sln .
+COPY sitedigitalstore/*.csproj ./aspnetapp/
 RUN dotnet restore
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
+# copy everything else and build app
+COPY sitedigitalstore/. ./aspnetapp/
+WORKDIR /app/aspnetapp
+RUN dotnet publish -c Release -o out
 
-COPY --from=build . ./
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/aspnetapp/out ./
 ENTRYPOINT ["dotnet", "sitedigitalstore.dll"]
-ENTRYPOINT ["dotnet", "XUnitTest.dll"]
