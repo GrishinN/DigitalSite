@@ -11,5 +11,5 @@ script:
 
 after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS";
-  - docker build -t sitedigitalstore .;
+  - docker build -t sitedigitalstore:latest .;
   - docker push "$DOCKER_USER"/sitedigitalstore:latest;
