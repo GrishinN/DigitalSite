@@ -3,13 +3,13 @@ WORKDIR /app
 
 # copy csproj and restore as distinct layers
 COPY sitedigitalstore.sln .
-COPY sitedigitalstore/*.csproj ./aspnetapp/
-COPY XUnitTest/*.csproj ./aspnetapp/
+COPY ./sitedigitalstore/*.csproj ./aspnetapp/
+COPY ./XUnitTest/*.csproj ./aspnetapp/
 RUN dotnet restore
 
 # copy everything else and build app
-COPY sitedigitalstore/. ./aspnetapp/
-COPY XUnitTest/. ./aspnetapp/
+COPY ./sitedigitalstore/. ./aspnetapp/
+COPY ./XUnitTest/. ./aspnetapp/
 WORKDIR /app/aspnetapp
 RUN dotnet publish -c Release -o out
 
