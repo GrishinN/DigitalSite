@@ -11,5 +11,5 @@ script:
 
 after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS";
-  - docker build -t digitalsite:latest .;
-  - docker push "$DOCKER_USER"/digitalsite:latest;
+  - docker build -t digitalsite:v1 .;
+  - docker push "$DOCKER_USER"/digitalsite:v1;
