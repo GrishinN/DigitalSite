@@ -18,4 +18,3 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 ENTRYPOINT ["dotnet", "sitedigitalstore.dll"]
-ENTRYPOINT ["dotnet", "XUnitTest.dll"]
