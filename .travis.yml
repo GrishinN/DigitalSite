@@ -21,3 +21,5 @@ deploy:
         secure: "$HEROKU_API_KEY"
     app:
         develop: "$HEROKU_APP_NAME"
+     on:
+      branch: master
