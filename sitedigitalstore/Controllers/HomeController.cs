@@ -21,6 +21,7 @@ namespace sitedigitalstore.Controllers
 		public IActionResult Index()
 		{
 			ViewData["Message"] = "Hello!";
+			ViewData["Message2"] = "Hello!";
 			return View("Index");
 		}
 
