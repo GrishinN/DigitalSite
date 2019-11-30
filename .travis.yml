@@ -14,5 +14,3 @@ after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS";
   - docker build -t diablodoc/digitalsite:v1 .;
   - docker push "$DOCKER_USER"/digitalsite:v1;
-  — sh .travis/deploy_dockerhub.sh
-  — test “$TRAVIS_BRANCH” = “master” && sh .travis/deploy_heroku.sh
