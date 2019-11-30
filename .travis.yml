@@ -15,7 +15,6 @@ after_success:
   - docker build -t diablodoc/digitalsite:v1 .;
   - docker push "$DOCKER_USER"/digitalsite:v1;
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-  - heroku container:push web --app "$HEROKU_APP_NAME";
 deploy:
     provider: heroku
     api_key:
