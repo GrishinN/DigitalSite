@@ -17,7 +17,6 @@ after_success:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 deploy:
     provider: heroku
-    heroku stack:set heroku-18  
     api_key:
         secure: 4ca6c71f-9bc4-408b-8641-72df4eef0310
     app: "$HEROKU_APP_NAME"
